@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <title>Tabungan.id</title>
+    <style>
+    .tombol-link {
+      background-color: #4CAF50 ;
+      color: white;
+      padding: 10px 20px;
+      text decoration: none;
+      display: inline-block;
+      border-radius: 2px;
+      font-family: helvetica;
+    }
+    .tombol-link;hover {
+      background color: #006400;
+    }
+    button {
+      background-color: #4CAF50 ;
+      color: white;
+      padding: 10px 20px;
+      text decoration: none;
+      display: inline-block;
+      border-radius: 2px;
+      font-family: helvetica;
+    }
+    h1 {
+      color: #4CAF50
+    }
+    body{
+      font-family: 'helvetica';
+      background-color: #f0f8ff
+    }
+    </style>
+  </head> 
+  <body>
+    <header>
+    <h1 style="color;green">Pendataan Tabungan</h1>
+    <p>sarana pendataan tabungan secara terpusat dan mudah</p>
+    </header>
+  <article>  
+    <p>
+    <a href="https://datastudio.google.com/embed/reporting/8cc028eb-bb41-4b3d-8f63-0b624d9bed0e/page/page_12345" class="tombol-link">Laporan Utama</a>
+    </p>
+  </article>
+  <form id="formTabungan">
+    <div>
+    <label for="nama" style="font weight: bold;">Nama</label><br>
+    <select id="nama" name="Nama" style="padding: 8px; border-radius: 5px;" required>
+      <option value=""> Pilih Nama</option>
+      <option value="Ibu Darman">Ibu Darman</option>
+      <option value="Ibu Intun">Ibu Intun</option>
+      <option value="Ibu Lastri">Ibu Lastri</option>
+      <option value="Ibu Murti">Ibu Murti</option>
+      <option value="Ibu Roni">Ibu Roni</option>
+      <option value="Ibu Sis">Ibu Sis</option>
+      <option value="Ibu Watik">Ibu Watik</option>
+      <option value="Ibu Deni">Ibu Deni</option>
+      <option value="Ibu Mirah">Ibu Mirah</option>
+      <option value="Ibu Sriasmi">Ibu Sriasmi</option>
+    </select>
+      </div><br>
+      <div>
+        <label for="tanggal" style="font weight: bold;">Tanggal</label><br>
+        <input type="date" id="Tanggal" name="Tanggal" style="padding: 8px; border-radius: 5px;" required>
+      </div><br>
+      <div>
+      <label for="Nominal" style="font weight: bold;">Nominal<br>*tulis tanpa tanda titik dan tanda lainnya</label><br>
+      <input type="text" id="Nominal" name="Nominal" placeholder="Jumlah Uang" style="padding: 8px; border-radius: 5px;" required>
+      </div><br>
+    <div>
+    <label for="keterangan" style="font weight: bold;">Keterangan</label><br>
+    <select id="keterangan" name="Keterangan" style="padding: 8px; border-radius: 5px;" required>
+      <option value=""> Pilih Jenis Transaksi</option>
+      <option value="Masuk">Masuk</option>
+      <option value="Keluar">Keluar</option>
+    </select>
+      </div><br>
+      <button type="button" style= "color:white" onclick="kirimData()">Simpan Data</button>
+<script>
+  function kirimData() {
+    var formElement = document.getElementById("formTabungan");
+    
+    // Mengambil semua isi kotak input otomatis
+    var formData = new FormData(formElement);
+    var dataKirim = Object.fromEntries(formData.entries());
+
+    // Ganti URL di bawah dengan URL Web App hasil New Deployment milikmu
+    var urlGoogleScript = "URL_WEB_APP_KAMU_DI_SINI";
+
+    fetch(urlGoogleScript, {
+      method: 'POST',
+      body: JSON.stringify(dataKirim)
+    })
+    .then(response => response.json())
+    .then(data => {
+      alert("Data berhasil disimpan!");
+      formElement.reset();
+    })
+    .catch(error => {
+      alert("Terjadi kesalahan, coba lagi.");
+    });
+  }
+</script>
+  </form>
+   <footer>
+  <p>
+    <h3>Chat via WhatsApp</h3>
+  <a href="https://api.whatsapp.com/send?phone=6282227180933" target="_blank">
+  <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="Chat via WhatsApp" /></a>
+  </p>
+  <p>
+    *Web ini masih akan terus disempurnakan dan diupdate secara berkala
+  </p>  
+  </footer>
+  </body>
+</html>
