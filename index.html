@@ -4,6 +4,15 @@
     <meta charset="utf-8">
     <title>Tabungan.id</title>
     <style>
+      table {
+      width: 100%;
+      border-collapse: collapse; /* Merges borders into a single clean line */
+    }
+      th {
+        border: 1px solid #333333; /* Adds a solid, dark-grey border */
+      padding: 8px;              /* Spacing inside the cells */
+      text-align: left;
+       background-color: #f2f2f2;  
     .tombol-link {
       background-color: #4CAF50 ;
       color: white;
@@ -77,7 +86,17 @@
       <option value="Keluar">Keluar</option>
     </select>
       </div><br>
-      <button type="button" style= "color:white" onclick="kirimData()">Simpan Data</button>
+    <div>
+      <p>
+        <table>
+          <th>
+        <input type="checkbox" id="syarat" name="syarat" value="syarat>
+<label for="syarat">pastikan telah mengisi data dengan benar dan bukan coba-coba sebelum menekan tombol simpan<br>data yang telah disimpan telah bersifat permanen<br>jika ingin menghapus suatu data harap berkomunikasi via WhatsApp</label>
+      </th>
+        </table>
+        </p>
+    </div>
+      <button type="button" style= "color:white" onclick="kirimData()">Simpan</button>
 <script>
   function kirimData() {
     var formElement = document.getElementById("formTabungan");
